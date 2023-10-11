@@ -1,3 +1,4 @@
+// my-shared-library/vars/checkFileExistence.groovy
 
 def call(String fileName) {
     try {
@@ -15,6 +16,7 @@ def call(String fileName) {
 }
 
 def fileExists(String fileName) {
+    // You can use the fileExists step here to check if the file exists
     return fileExists(fileName as String)
 }
 
