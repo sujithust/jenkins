@@ -1,4 +1,4 @@
-def call(String name, def dayOfWeek) {
+def call(String name, int dayOfWeek) {
     // Validate the 'name' and 'dayOfWeek' parameters
     if (isString(name) && isInteger(dayOfWeek)) {
         // 'name' is a non-null string and 'dayOfWeek' is an integer, proceed
@@ -15,10 +15,9 @@ def isString(value) {
 
 // Function to check if a value is an integer
 def isInteger(value) {
-    try {
-        Integer.parseInt(value)
+    if (value instanceof Integer) {
         return true
-    } catch (NumberFormatException e) {
+    } else {
         return false
     }
 }
@@ -28,6 +27,7 @@ def error(message) {
     currentBuild.result = 'FAILURE'
     error(message)
 }
+
 
 
 
