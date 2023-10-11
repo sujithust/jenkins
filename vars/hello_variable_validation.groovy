@@ -4,13 +4,18 @@ def call(String name, def dayOfWeek) {
         // 'name' is a non-null string and 'dayOfWeek' is an integer, proceed
         sh "echo Hello World ${name}. It is day ${dayOfWeek}."
     } else {
+        // Display a custom error message when inputs are not of the expected type
         error("Invalid input: 'name' must be a non-null string, and 'dayOfWeek' must be an integer.")
     }
 }
 
 // Function to check if a value is a string
 def isString(value) {
-    return value instanceof String && value.trim() // Check if it's a non-empty string
+    if (value instanceof String && value.trim() != '') {
+        return true
+    } else {
+        return false
+    }
 }
 
 // Function to check if a value is an integer
@@ -18,7 +23,6 @@ def isInteger(value) {
     if (value instanceof Integer) {
         return true
     } else {
-        error("Input is not an integer. It should be an integer.")
         return false
     }
 }
@@ -26,8 +30,9 @@ def isInteger(value) {
 // Function to provide a custom error message
 def error(message) {
     currentBuild.result = 'FAILURE'
-    error(message)
+    echo "Error: $message"
 }
+
 
 
 
