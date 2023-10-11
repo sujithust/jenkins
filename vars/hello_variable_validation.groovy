@@ -1,15 +1,10 @@
-def call(String name, int dayOfWeek) {
+def call(String name, def dayOfWeek) {
     // Validate the 'name' and 'dayOfWeek' parameters
-    if (isString(name)) {
-        // 'name' is a non-null string, proceed with the validation for 'dayOfWeek'
-        if (isInteger(dayOfWeek)) {
-            // 'dayOfWeek' is an integer, execute the 'sh' step
-            sh "echo Hello World ${name}. It is day ${dayOfWeek}."
-        } else {
-            error("Invalid input: 'dayOfWeek' must be an integer.")
-        }
+    if (isString(name) && isInteger(dayOfWeek)) {
+        // 'name' is a non-null string and 'dayOfWeek' is an integer, proceed
+        sh "echo Hello World ${name}. It is day ${dayOfWeek}."
     } else {
-        error("Invalid input: 'name' must be a non-null string.")
+        error("Invalid input: 'name' must be a non-null string, and 'dayOfWeek' must be an integer.")
     }
 }
 
@@ -20,8 +15,20 @@ def isString(value) {
 
 // Function to check if a value is an integer
 def isInteger(value) {
-    return value instanceof Integer
+    try {
+        Integer.parseInt(value)
+        return true
+    } catch (NumberFormatException e) {
+        return false
+    }
 }
+
+// Function to provide a custom error message
+def error(message) {
+    currentBuild.result = 'FAILURE'
+    error(message)
+}
+
 
 
 
