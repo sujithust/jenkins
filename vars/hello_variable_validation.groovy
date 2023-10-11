@@ -24,3 +24,21 @@ def isInteger(value) {
 }
 
 
+
+
+
+// @Library('sujith') _
+
+// pipeline {
+//     agent any
+
+//     stages {
+//         stage('Hello World') {
+//             steps {
+//                 script {
+//                     hello_variable_validation('abc', 1)
+//                 }
+//             }
+//         }
+//     }
+// }
