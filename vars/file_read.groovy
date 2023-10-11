@@ -1,3 +1,8 @@
-def call(String filePath) {
-    return readFile(file: filePath).trim()
+def call(String fileName) {
+    readSampleFunction(fileName)
+}
+
+def readSampleFunction(String fileName) {
+    def fileContent = readFile(file: fileName).trim()
+    return fileContent
 }
