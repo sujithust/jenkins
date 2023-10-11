@@ -2,7 +2,7 @@
 
 def call(String fileName) {
     try {
-        if (fileExists(fileName)) {
+        if (isFileExists(fileName)) {
             echo "File '$fileName' exists. Performing some action..."
             // You can add more steps to perform actions when the file exists
         } else {
@@ -15,8 +15,8 @@ def call(String fileName) {
     }
 }
 
-def fileExists(String fileName) {
-    // You can use the fileExists step here to check if the file exists
-    return fileExists(fileName as String)
+def isFileExists(fileName) {
+    return fileExists(fileName)
 }
+
 
