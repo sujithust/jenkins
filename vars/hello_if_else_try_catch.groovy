@@ -3,7 +3,7 @@
 def call(String fileName) {
     try {
         if (isFileExists(fileName)) {
-            echo "File '$fileName' exists. Performing some action..."
+            echio "File '$fileName' exists. Performing some action..."
             // You can add more steps to perform actions when the file exists
         } else {
             echo "File '$fileName' does not exist. Displaying an error message..."
