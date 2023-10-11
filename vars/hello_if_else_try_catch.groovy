@@ -22,3 +22,17 @@ def call(String fileName) {
 def isFileExists(fileName) {
     return fileExists(fileName)
 }
+
+
+// @Library('sujith') _
+
+// pipeline {
+//     agent any
+//     stages {
+//         stage('Check File Existence') {
+//             steps {
+//                 hello_if_else_try_catch('file.txt')
+//             }
+//         }
+//     }
+// }
