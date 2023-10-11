@@ -1,4 +1,5 @@
-def call(String name, def dayOfWeek) {
+def call(String name = 'sujith', def dayOfWeek = 1) {
+//def call(String name, def dayOfWeek) {
     // Validate the 'name' and 'dayOfWeek' parameters
     if (isString(name) && isInteger(dayOfWeek)) {
         // 'name' is a non-null string and 'dayOfWeek' is an integer, proceed
